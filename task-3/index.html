@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA PRO | CSS 3D Experience</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Loading Overlay -->
+    <div class="loader" id="loader">
+        <div class="loader-inner">
+            <span class="loader-text">AURA 3D</span>
+            <div class="loader-bar">
+                <div class="loader-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">AURA<span class="dot">.</span></div>
+        <button class="nav-cta">Pre-Order</button>
+    </nav>
+
+    <!-- Main Scroll Container -->
+    <main class="scroll-container">
+
+        <!-- 3D Stage (Fixed in background) -->
+        <div class="stage-container">
+            <div class="stage">
+                <!-- The Whole Case Group -->
+                <div class="case-group">
+
+                    <!-- CASE BODY (Bottom Part) -->
+                    <div class="case-body">
+                        <div class="face front">
+                            <div class="led-light"></div>
+                            <div class="logo-text">AURA</div>
+                        </div>
+                        <div class="face back">
+                            <div class="hinge"></div>
+                        </div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                        <div class="face bottom"></div>
+                        <div class="face interior-bottom"></div>
+                        <!-- Inner Well for Buds -->
+                        <div class="well left-well"></div>
+                        <div class="well right-well"></div>
+                    </div>
+
+                    <!-- EARBUDS (Inside Case) -->
+                    <div class="earbuds-group">
+                        <!-- Left Bud -->
+                        <div class="bud bud-left">
+                            <div class="stem"></div>
+                            <div class="head"></div>
+                        </div>
+                        <!-- Right Bud -->
+                        <div class="bud bud-right">
+                            <div class="stem"></div>
+                            <div class="head"></div>
+                        </div>
+                    </div>
+
+                    <!-- CASE LID (Top Part - Rotates) -->
+                    <div class="case-lid">
+                        <div class="face top"></div>
+                        <div class="face front-lid"></div>
+                        <div class="face back-lid"></div>
+                        <div class="face left-lid"></div>
+                        <div class="face right-lid"></div>
+                        <div class="face interior-lid"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1: Intro -->
+        <section class="section intro">
+            <div class="content-wrapper">
+                <h1>PURE<br>SOUND</h1>
+                <p>Scroll to Open</p>
+            </div>
+        </section>
+
+        <!-- Section 2: Open -->
+        <section class="section open-trigger">
+            <div class="content-wrapper right-align">
+                <h2>SEAMLESS<br>ACCESS</h2>
+                <p>Magnetic precision. Instant pairing.</p>
+            </div>
+        </section>
+
+        <!-- Section 3: Reveal Buds -->
+        <section class="section reveal-trigger">
+            <div class="content-wrapper left-align">
+                <h2>WIRELESS<br>FREEDOM</h2>
+                <p>48 hours of playback. Zero cords.</p>
+            </div>
+        </section>
+
+        <!-- Section 4: Immersion -->
+        <section class="section immersion-trigger">
+            <div class="content-wrapper center-align">
+                <h2>IMMERSIVE<br>REALITY</h2>
+                <button class="cta-btn">GET YOURS $299</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
