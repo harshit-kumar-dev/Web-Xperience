@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORGE — Premium Gym Equipment</title>
+    <meta name="description"
+        content="FORGE — Premium fitness equipment and supplements. Elevate your training with world-class gym gear.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-logo">FORGE<span class="accent">.</span></div>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#featured">Products</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#cta">Join</a></li>
+        </ul>
+        <div class="nav-hamburger" id="nav-hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#featured">Products</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#cta">Join</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-tagline">ELEVATE YOUR TRAINING</p>
+            <h1 class="hero-title">UNLEASH <br><span class="accent">YOUR POWER</span></h1>
+            <p class="hero-desc">Premium gym equipment crafted for those who demand excellence. No limits. No excuses.
+            </p>
+            <a href="#featured" class="hero-btn">EXPLORE GEAR</a>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>SCROLL</span>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured" id="featured">
+        <div class="section-header">
+            <p class="section-label">CURATED FOR YOU</p>
+            <h2 class="section-title">FEATURED <span class="accent">PRODUCTS</span></h2>
+        </div>
+        <div class="products-grid">
+
+            <div class="product-card" data-speed="0.9">
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=800&auto=format&fit=crop"
+                        alt="Pro Dumbbell Set">
+                    <div class="product-overlay">
+                        <span class="product-tag">BESTSELLER</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Pro Dumbbell Set</h3>
+                    <p class="product-category">WEIGHTS</p>
+                    <div class="product-bottom">
+                        <span class="product-price">$249</span>
+                        <button class="product-btn">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-speed="1.1">
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop"
+                        alt="Titan Barbell">
+                    <div class="product-overlay">
+                        <span class="product-tag">NEW</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Titan Olympic Barbell</h3>
+                    <p class="product-category">BARBELLS</p>
+                    <div class="product-bottom">
+                        <span class="product-price">$189</span>
+                        <button class="product-btn">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-speed="0.8">
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?q=80&w=800&auto=format&fit=crop"
+                        alt="Elite Treadmill">
+                    <div class="product-overlay">
+                        <span class="product-tag">PREMIUM</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Elite X9 Treadmill</h3>
+                    <p class="product-category">CARDIO</p>
+                    <div class="product-bottom">
+                        <span class="product-price">$1,499</span>
+                        <button class="product-btn">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-speed="1.0">
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop"
+                        alt="Resistance Bands">
+                    <div class="product-overlay">
+                        <span class="product-tag">POPULAR</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Power Resistance Bands</h3>
+                    <p class="product-category">ACCESSORIES</p>
+                    <div class="product-bottom">
+                        <span class="product-price">$49</span>
+                        <button class="product-btn">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-speed="1.2">
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=800&auto=format&fit=crop"
+                        alt="Kettlebell">
+                    <div class="product-overlay">
+                        <span class="product-tag">LIMITED</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Cast Iron Kettlebell</h3>
+                    <p class="product-category">WEIGHTS</p>
+                    <div class="product-bottom">
+                        <span class="product-price">$79</span>
+                        <button class="product-btn">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-speed="0.95">
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop"
+                        alt="Whey Protein">
+                    <div class="product-overlay">
+                        <span class="product-tag">TOP RATED</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Ultra Whey Protein</h3>
+                    <p class="product-category">SUPPLEMENTS</p>
+                    <div class="product-bottom">
+                        <span class="product-price">$59</span>
+                        <button class="product-btn">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="section-header">
+            <p class="section-label">BROWSE BY TYPE</p>
+            <h2 class="section-title">SHOP <span class="accent">CATEGORIES</span></h2>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=800&auto=format&fit=crop"
+                    alt="Dumbbells">
+                <div class="category-overlay">
+                    <h3>DUMBBELLS</h3>
+                    <span class="category-count">24 Products</span>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=800&auto=format&fit=crop"
+                    alt="Treadmills">
+                <div class="category-overlay">
+                    <h3>TREADMILLS</h3>
+                    <span class="category-count">12 Products</span>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1593095948071-474c5cc2c412?q=80&w=800&auto=format&fit=crop"
+                    alt="Supplements">
+                <div class="category-overlay">
+                    <h3>SUPPLEMENTS</h3>
+                    <span class="category-count">36 Products</span>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1598289431512-b97b0917affc?q=80&w=800&auto=format&fit=crop"
+                    alt="Accessories">
+                <div class="category-overlay">
+                    <h3>ACCESSORIES</h3>
+                    <span class="category-count">48 Products</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="cta">
+        <div class="cta-bg-overlay"></div>
+        <div class="cta-content">
+            <p class="cta-label">JOIN THE MOVEMENT</p>
+            <h2 class="cta-title">GET <span class="accent">20% OFF</span><br>YOUR FIRST ORDER</h2>
+            <p class="cta-desc">Subscribe to our newsletter and unlock exclusive deals, early access, and training tips
+                from professional athletes.</p>
+            <form class="cta-form" onsubmit="return false;">
+                <input type="email" placeholder="Enter your email" class="cta-input" required>
+                <button type="submit" class="cta-btn">SUBSCRIBE</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+
+    <!-- Marquee Section -->
+    <div class="marquee-section">
+        <div class="marquee-content">
+            <span>// SYSTEM_OPTIMIZED // PEAK_PERFORMANCE // FORGE_BLUEPRINT_V2 // ENGINEERED_FOR_ELITE // NO_LIMITS //
+            </span>
+            <span>// SYSTEM_OPTIMIZED // PEAK_PERFORMANCE // FORGE_BLUEPRINT_V2 // ENGINEERED_FOR_ELITE // NO_LIMITS //
+            </span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <h3>FORGE<span class="accent">.</span></h3>
+                <p>Premium fitness equipment for warriors who never quit.</p>
+            </div>
+            <div class="footer-links">
+                <h4>SHOP</h4>
+                <ul>
+                    <li><a href="#">Dumbbells</a></li>
+                    <li><a href="#">Barbells</a></li>
+                    <li><a href="#">Machines</a></li>
+                    <li><a href="#">Supplements</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Warranty</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 FORGE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

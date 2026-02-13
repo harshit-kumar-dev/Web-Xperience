@@ -1,27 +1,79 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Entrance Animation
+    // 0. Elements
+    const welcomeScreen = document.querySelector(".welcome-screen");
+    const welcomeTitle = document.querySelector(".welcome-title");
+    const enterBtn = document.querySelector(".enter-btn");
     const sections = document.querySelectorAll(".section");
     const contents = document.querySelectorAll(".content");
+    const clippedTexts = document.querySelectorAll(".clipped-text"); // Select clipped texts
+    const navLeft = document.querySelector(".nav-left");
     const lines = document.querySelector(".overlay-lines");
 
+    // Initial States
     gsap.set(sections, { autoAlpha: 0, scale: 1.1 });
     gsap.set(contents, { autoAlpha: 0, y: 30 });
+    gsap.set(clippedTexts, { autoAlpha: 0, scale: 1.2 }); // Prepare clipped text
+    gsap.set(navLeft, { autoAlpha: 0, x: -20 });
 
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-
-    tl.to(sections, {
+    // 1. Welcome Screen Animation
+    const welcomeTl = gsap.timeline();
+    welcomeTl.to(welcomeTitle, {
         duration: 1.5,
         autoAlpha: 1,
-        scale: 1,
-        stagger: 0.1,
-        ease: "expo.out"
+        y: 0,
+        ease: "power3.out"
     })
-        .to(contents, {
+        .to(enterBtn, {
             duration: 1,
             autoAlpha: 1,
             y: 0,
-            stagger: 0.1
-        }, "-=1");
+            ease: "power3.out"
+        }, "-=0.5");
+
+    // 2. Main Entrance Function
+    const playMainEntrance = () => {
+        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+        tl.to(sections, {
+            duration: 1.5,
+            autoAlpha: 1,
+            scale: 1,
+            stagger: 0.1,
+            ease: "expo.out"
+        })
+            .to(contents, {
+                duration: 1,
+                autoAlpha: 1,
+                y: 0,
+                stagger: 0.1
+            }, "-=1")
+            .to(clippedTexts, { // Animate clipped texts
+                duration: 1.5,
+                autoAlpha: 1,
+                scale: 1,
+                ease: "power2.out"
+            }, "-=1.5")
+            .to(navLeft, {
+                duration: 1,
+                autoAlpha: 1,
+                x: 0,
+                ease: "power2.out"
+            }, "-=1.5");
+    };
+
+    // 3. Interaction
+    enterBtn.addEventListener("click", () => {
+        // Fade out welcome
+        gsap.to(welcomeScreen, {
+            duration: 1,
+            autoAlpha: 0,
+            ease: "power2.inOut",
+            onComplete: () => {
+                welcomeScreen.classList.add("hidden");
+                playMainEntrance();
+            }
+        });
+    });
 
     // 2. Mouse Move Parallax (Subtle)
     // 2. Mouse Move Parallax (Subtle)

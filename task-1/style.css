@@ -141,6 +141,24 @@ body {
     clip-path: polygon(var(--top-x) 0, 100% 0, 100% var(--right-y), var(--center-x) var(--center-y));
 }
 
+/* Clip Paths - ensuring gap doesn't hide text if centered? 
+   Actually, the gap is just background color. If we want text to be continuous, we need the sections to essentially touch or the text to be z-indexed above. 
+   BUT the user wants the 'cut' effect where text changes with section. 
+   So if I put text in all 4 sections, it will be clipped by the section polygon.
+   If there is a gap, there will be a gap in the text.
+   Let's reduce gap to 0 or make sure text is big enough.
+*/
+
+/* TL */
+#section-1 {
+    clip-path: polygon(0 0, var(--top-x) 0, var(--center-x) var(--center-y), 0 var(--left-y));
+}
+
+/* TR */
+#section-2 {
+    clip-path: polygon(var(--top-x) 0, 100% 0, 100% var(--right-y), var(--center-x) var(--center-y));
+}
+
 /* BL */
 #section-3 {
     clip-path: polygon(0 var(--left-y), var(--center-x) var(--center-y), var(--bottom-x) 100%, 0 100%);
@@ -202,53 +220,160 @@ body {
 
 /* Add this to the end of style.css */
 
-.center-text {
+/* Nav Left */
+.nav-left {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.hamburger {
+    width: 40px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.hamburger:hover span:nth-child(2) {
+    width: 70%;
+}
+
+.hamburger:hover span:nth-child(3) {
+    width: 40%;
+}
+
+.project-text {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Clipped Text */
+/* Clipped Text */
+.clipped-text {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 30;
-    /* Above everything */
-    pointer-events: none;
-    /* Allow clicks to pass through to sections if desired, or auto if text should be selectable */
-    mix-blend-mode: overlay;
-    /* Optional: Cool effect against changing backgrounds */
-    text-align: center;
-    width: 100%;
-}
-
-.center-text h1 {
-    font-size: 6rem;
+    /* Horizontal managed by subclasses */
+    transform: translateY(-50%);
     font-family: 'Montserrat', sans-serif;
-    /* Clean, bold, authoritative */
-    font-weight: 200;
-    /* Thin and elegant */
-    color: #ffffff;
+    font-size: 12rem;
+    /* Increased size */
+    font-weight: 800;
+    color: #fff;
     text-transform: uppercase;
-    letter-spacing: 15px;
-    /* Premium spacing */
-    margin: 0;
+    letter-spacing: -5px;
+    /* Tighter letter spacing for impactful look */
+    z-index: 50;
+    /* Ensure it's on top */
+    pointer-events: none;
+    white-space: nowrap;
     opacity: 0;
-    animation: fadeIn 2s ease-out forwards 1s;
-    text-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-    mix-blend-mode: difference;
-    /* Interactive look against backgrounds */
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    /* Added shadow for pop */
 }
 
-/* Add hover effect for center text for extra interactivity */
-.center-text h1:hover {
-    letter-spacing: 20px;
-    transition: letter-spacing 0.8s ease;
+.clipped-text.left-part {
+    right: 50%;
+    left: auto;
+    text-align: right;
+    padding-right: 5px;
+    transform: translateY(-75%) rotate(-10deg);
+    /* Up & Rotate */
 }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
+.clipped-text.right-part {
+    left: 50%;
+    right: auto;
+    text-align: left;
+    padding-left: 5px;
+    transform: translateY(-25%) rotate(-10deg);
+    /* Down & Rotate */
+}
+
+/* Slight down */
 }
 
 @media (max-width: 768px) {
-    .center-text h1 {
+    .clipped-text {
         font-size: 3rem;
     }
+
+    .nav-left {
+        top: 20px;
+        left: 20px;
+    }
+}
+
+/* Welcome Screen */
+.welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0a0a0a;
+    z-index: 100;
+    /* Highest priority */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+
+.welcome-content {
+    text-align: center;
+}
+
+.welcome-title {
+    font-family: 'Cinzel', serif;
+    font-size: 5rem;
+    letter-spacing: 10px;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.enter-btn {
+    padding: 15px 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.enter-btn:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.welcome-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
