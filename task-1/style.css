@@ -293,8 +293,8 @@ body {
     left: auto;
     text-align: right;
     padding-right: 5px;
-    transform: translateY(-75%) rotate(-10deg);
-    /* Up & Rotate */
+    transform: translateY(-65%);
+    /* Slight up */
 }
 
 .clipped-text.right-part {
@@ -302,11 +302,8 @@ body {
     right: auto;
     text-align: left;
     padding-left: 5px;
-    transform: translateY(-25%) rotate(-10deg);
-    /* Down & Rotate */
-}
-
-/* Slight down */
+    transform: translateY(-25%);
+    /* Slight down */
 }
 
 @media (max-width: 768px) {
