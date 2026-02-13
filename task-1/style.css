@@ -1,0 +1,254 @@
+:root {
+    --bg-color: #0a0a0a;
+    --text-color: #ffffff;
+    --accent-color: #d4af37;
+    /* Gold */
+
+    /* Layout Coordinates */
+    --center-x: 50%;
+    --center-y: 50%;
+    --top-x: 45%;
+    /* Vertical line top start */
+    --bottom-x: 55%;
+    /* Vertical line bottom end */
+    --left-y: 55%;
+    /* Horizontal line left start */
+    --right-y: 45%;
+    /* Horizontal line right end */
+    --gap: 2px;
+    /* Gap between sections */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-color);
+    overflow: hidden;
+    /* Prevent scroll */
+    height: 100vh;
+    width: 100vw;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #000;
+}
+
+.section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: pointer;
+    transition: z-index 0.3s;
+}
+
+.image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+}
+
+.default {
+    opacity: 1;
+    filter: brightness(0.7) grayscale(0.2);
+}
+
+.hover-img {
+    opacity: 0;
+    filter: brightness(1);
+}
+
+.content {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+    /* Let clicks pass to section */
+    opacity: 0;
+    /* Hidden initially, animate in */
+    transform: translateY(20px);
+}
+
+.content h2 {
+    font-size: 3.5rem;
+    font-family: 'Cinzel', serif;
+    /* Classic, Roman style */
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s ease;
+}
+
+/* Positioning Content roughly in centers of quadrants */
+#section-1 .content {
+    top: 25%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+
+#section-2 .content {
+    top: 25%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+}
+
+#section-3 .content {
+    top: 75%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+
+#section-4 .content {
+    top: 75%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+}
+
+/* Clip Paths */
+/* TL */
+#section-1 {
+    clip-path: polygon(0 0, var(--top-x) 0, var(--center-x) var(--center-y), 0 var(--left-y));
+}
+
+/* TR */
+#section-2 {
+    clip-path: polygon(var(--top-x) 0, 100% 0, 100% var(--right-y), var(--center-x) var(--center-y));
+}
+
+/* BL */
+#section-3 {
+    clip-path: polygon(0 var(--left-y), var(--center-x) var(--center-y), var(--bottom-x) 100%, 0 100%);
+}
+
+/* BR */
+#section-4 {
+    clip-path: polygon(var(--center-x) var(--center-y), 100% var(--right-y), 100% 100%, var(--bottom-x) 100%);
+}
+
+/* Hover States */
+.section:hover {
+    z-index: 10;
+    /* Bring to top if we were expanding, but strictly clip-path handles visibility */
+}
+
+.section:hover .image-wrapper {
+    transform: scale(1.1);
+}
+
+.section:hover .default {
+    opacity: 0;
+}
+
+.section:hover .hover-img {
+    opacity: 1;
+}
+
+/* Lines Overlay - Visual only */
+.overlay-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 20;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    :root {
+        --center-x: 50%;
+        --center-y: 50%;
+        /* Less extreme tilt on mobile */
+        --top-x: 50%;
+        --bottom-x: 50%;
+        --left-y: 50%;
+        --right-y: 50%;
+    }
+
+    .content h2 {
+        font-size: 2rem;
+    }
+
+    /* Stack layout if needed, but clip-path might still look cool */
+    /* Let's keep clip-path pattern but maybe adjust content positions */
+}
+
+/* Add this to the end of style.css */
+
+.center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 30;
+    /* Above everything */
+    pointer-events: none;
+    /* Allow clicks to pass through to sections if desired, or auto if text should be selectable */
+    mix-blend-mode: overlay;
+    /* Optional: Cool effect against changing backgrounds */
+    text-align: center;
+    width: 100%;
+}
+
+.center-text h1 {
+    font-size: 6rem;
+    font-family: 'Montserrat', sans-serif;
+    /* Clean, bold, authoritative */
+    font-weight: 200;
+    /* Thin and elegant */
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 15px;
+    /* Premium spacing */
+    margin: 0;
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards 1s;
+    text-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    mix-blend-mode: difference;
+    /* Interactive look against backgrounds */
+}
+
+/* Add hover effect for center text for extra interactivity */
+.center-text h1:hover {
+    letter-spacing: 20px;
+    transition: letter-spacing 0.8s ease;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .center-text h1 {
+        font-size: 3rem;
+    }
+}
