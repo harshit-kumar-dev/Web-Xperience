@@ -94,5 +94,5 @@ Want to explore the source code and run these experiences locally? Follow these 
 <br/>
 
 <div align="center">
-  <i>/// Built with passion by the Web-Xperience Team ///</i>
+  <i>/// Built with passion by Harshit kumar///</i>
 </div>
